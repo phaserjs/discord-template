@@ -37,7 +37,7 @@ npm run dev
 
 Activate **Embedded SDK** for the client:
 **Uncomment** SDK code in **client/main.js**:
-```
+```js
 // Instantiate the SDK
 /* const discordSdk = new DiscordSDK(import.meta.env.VITE_DISCORD_CLIENT_ID);
 setupDiscordSdk().then(() => {

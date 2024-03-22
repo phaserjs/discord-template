@@ -66,6 +66,9 @@ Add the generated public URL to your Discord **Activities -> URL Mappings**.
 Now, you can run your Phaser app locally by just creating Activity in Discord! You will see the game will pop up there!
 
 
+## Test With Other People
+You need to add your friends on **Developer Portal -> Applications -> Your App -> App Testers -> Invite**. Once they accept invite, they can join to your Activity.
+
 
 ## Template Project Structure
 

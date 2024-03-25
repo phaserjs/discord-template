@@ -11,6 +11,8 @@ import { Preloader } from './scenes/Preloader';
 /* const discordSdk = new DiscordSDK(import.meta.env.VITE_DISCORD_CLIENT_ID);
 setupDiscordSdk().then(() => {
   console.log("Discord SDK is ready");
+}).catch((error) => {
+  console.log(error);
 });
 async function setupDiscordSdk() {
   await discordSdk.ready();
@@ -20,8 +22,8 @@ async function setupDiscordSdk() {
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
 const config = {
     type: Phaser.AUTO,
-    width: 1024,
-    height: 768,
+    width: window.innerWidth,
+    height: window.innerHeight,
     parent: 'game-container',
     backgroundColor: '#028af8',
     scale: {

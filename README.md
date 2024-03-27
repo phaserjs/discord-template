@@ -10,7 +10,9 @@ This template is used in the [Building An Activity](https://discord.com/develope
   - [Set OAuth2 Credentials](#set-oauth2-credentials)
   - [Client Installation](#client)
   - [Initialize Embedded App SDK](#initialize-embedded-app-sdk)
+  - [Running your app locally in Discord](#running-the-game-locally-in-discord)
   - [Server Installation](#server)
+  - [Activate Developer Mode in Discord](#activate-developer-mode-in-discord)
   - [Launch Your Activity!](#launch-your-activity)
 - [Test With Other People](#test-with-other-people)
 - [Template Project Structure](#template-project-structure)
@@ -76,11 +78,7 @@ async function setupDiscordSdk() {
 
 Once you add the SDK to your app, you will **NOT** be able to view your app inside your web browser. 
 
-```
-cd client
-npm run dev
-```
-
+#### Running the game locally in Discord
 Let's have another terminal tab for network tunnel to run application locally via **cloudflared** or **ngrok**. We will use cloudflared in this example. If you haven't, you can install cloudflared locally or globally(**npm i -g cloudflared**).
 ```
 cloudflared tunnel --url http://localhost:5173

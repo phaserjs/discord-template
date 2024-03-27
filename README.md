@@ -186,7 +186,7 @@ Once they accept the invitation, they can join your Activity:
 
 ## Have Fun!
 
-This complets the process of getting started creating games on Discord with Phaser. We hope you have fun creating your game and engaging with your community. At the time of writing this Discord feature is still in Developer Preview, which means there are some limitations in place, with regard to how large the server can be and so on. Please refer to the official Discord documentation for the most up-to-date information.
+This completes the process of getting started creating games on Discord with Phaser. We hope you have fun creating your game and engaging with your community. At the time of writing this Discord feature is still in Developer Preview, which means there are some limitations in place, with regard to how large the server can be and so on. Please refer to the official Discord documentation for the most up-to-date information.
 
 The rest of this document is a guide to the template project structure and how to customize it.
 

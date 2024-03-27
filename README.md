@@ -18,8 +18,6 @@ This template is used in the [Building An Activity](https://discord.com/develope
 - [Template Project Structure](#template-project-structure)
 - [Handling Assets](#handling-assets)
 
-![screenshot](screenshot.png)
-
 ## Requirements
 
 [Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
@@ -107,6 +105,8 @@ As the last step, we need to activate Developer Mode inside of the Discord, so w
 #### Launch your Activity!
 Now, you can run your Phaser app locally by just creating Activity in Discord! You will see the game will pop up there!
 ![runactivity](https://i.imgur.com/4PV332W.png)
+![screenshot](screenshot.png)
+
 
 
 ## Test With Other People

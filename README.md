@@ -24,7 +24,7 @@ This template is used in the [Building An Activity](https://discord.com/develope
 
 ## Creating A Discord App
 Firstly, let's create our Discord app from [Developer Portal](https://discord.com/developers/applications)
-![createdcapp](https://i.imgur.com/AB4TpBv.png)
+![createdcapp](screenshots/createdcapp.png)
 
 ## Installation
 Let's clone the project.
@@ -44,12 +44,12 @@ Replace your environment variables in **.env** from **Discord App -> OAuth2**
 VITE_DISCORD_CLIENT_ID=YOUR_OAUTH2_CLIENT_ID_HERE
 DISCORD_CLIENT_SECRET=YOUR_OAUTH2_CLIENT_SECRET_HERE
 ```
-![oauth2](https://i.imgur.com/7hdDjEB.png)
+![oauth2](screenshots/oauth2.png)
 
 *Prefixing the DISCORD_CLIENT_ID environment variable with VITE_ makes it accessible to our client-side code. This security measure ensures that only the variables you intend to be accessible in the browser are available, and all other environment variables remain private. Read more in the [Vite docs](https://vitejs.dev/guide/env-and-mode)*
 
 Also, don't forget to set **Redirect** URI as https://127.0.0.1.
-![redirects](https://i.imgur.com/yKy4Isx.png)
+![redirects](screenshots/redirects.png)
 
 #### Client:
 Let's install & run our client in the browser. Once we run it, it will be served at http://localhost:5173.
@@ -83,10 +83,10 @@ If you haven't, you can install cloudflared locally or globally(**npm i -g cloud
 ```
 cloudflared tunnel --url http://localhost:5173
 ```
-![cloudflared](https://i.imgur.com/GzcK5YP.png)
+![cloudflared](screenshots/cloudflared.png)
 
 Now, let's add the generated public URL to your Discord **Activities -> URL Mappings**.
-![urlmapping](https://i.imgur.com/er8k971.png)
+![urlmapping](screenshots/urlmappings.png)
 
 #### Server:
 In order to have OAuth2 working for authorization with Discord, let's install and run our local server.
@@ -100,18 +100,18 @@ npm run dev
 #### Activate Developer Mode in Discord
 As the last step, we need to activate Developer Mode inside of the Discord, so we can view the our game in the Activities. Go to, **Discord Settings -> Advanced -> Developer Mode -> On**.
 
-![activatedevelopermode](https://i.imgur.com/VIwEy82.png)
+![activatedevelopermode](screenshots/developermode.png)
 
 #### Launch your Activity!
 Now, you can run your Phaser app locally by just creating Activity in Discord! You will see the game will pop up there!
-![runactivity](https://i.imgur.com/4PV332W.png)
-![screenshot](screenshot.png)
+![runactivity](screenshots/runactivity.png)
+![screenshot](screenshots/result.png)
 
 
 
 ## Test With Other People
 You need to add your friends on **Developer Portal -> Applications -> Your App -> App Testers -> Invite**. Once they accept invite, they can join to your Activity.
-![addtester](https://i.imgur.com/eNPep5N.png)
+![addtester](screenshots/addtester.png)
 
 ## Template Project Structure
 

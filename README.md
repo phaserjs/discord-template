@@ -1,9 +1,20 @@
 # Phaser Discord Template
 This is a Discord Activity template serves as the starting point for creating Discord Activities with Phaser, to help you seamlessly integrate custom games and activities into your Discord server, fostering community engagement, interaction, and fun.
 
-This template is used in the [Building An Activity](https://discord.com/developers/docs/activities/building-an-activity) tutorial in the Discord Developer Docs. It's highly suggested to follow this guide in order to how to create App, configurating URL Mappings, etc.
+This template is used in the [Building An Activity](https://discord.com/developers/docs/activities/building-an-activity) tutorial in the Discord Developer Docs. You can also follow this guide.
 
-Read more about building Discord Activities with the Embedded App SDK at [https://discord.com/developers/docs/activities/overview](https://discord.com/developers/docs/activities/overview).
+[Read more](https://discord.com/developers/docs/activities/overview) about building Discord Activities with the Embedded App SDK.
+
+- [Creating A Discord App](#creating-a-discord-app)
+- [Installation](#installation)
+  - [Set OAuth2 Credentials](#set-oauth2-credentials)
+  - [Client Installation](#client)
+  - [Initialize Embedded App SDK](#initialize-embedded-app-sdk)
+  - [Server Installation](#server)
+  - [Launch Your Activity!](#launch-your-activity)
+- [Test With Other People](#test-with-other-people)
+- [Template Project Structure](#template-project-structure)
+- [Handling Assets](#handling-assets)
 
 ![screenshot](screenshot.png)
 
@@ -11,64 +22,96 @@ Read more about building Discord Activities with the Embedded App SDK at [https:
 
 [Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
 
+## Creating A Discord App
+Firstly, let's create our Discord app from [Developer Portal](https://discord.com/developers/applications)
+![createdcapp](https://i.imgur.com/AB4TpBv.png)
+
 ## Installation
-Clone the project.
+Let's clone the project.
 ```
 git clone git@github.com:phaserjs/discord-template.git
 ```
 
-Rename **example.env** to **.env**
+##### Set OAuth2 Credentials:
+Rename **example.env** to **.env** 
 ```
 cp example.env .env
 ```
 
-Replace your environment variables in **.env**
+Replace your environment variables in **.env** from **Discord App -> OAuth2**
 ```
 VITE_DISCORD_CLIENT_ID=YOUR_OAUTH2_CLIENT_ID_HERE
 DISCORD_CLIENT_SECRET=YOUR_OAUTH2_CLIENT_SECRET_HERE
 ```
+![oauth2](https://i.imgur.com/7hdDjEB.png)
 
-Client:
+*Prefixing the DISCORD_CLIENT_ID environment variable with VITE_ makes it accessible to our client-side code. This security measure ensures that only the variables you intend to be accessible in the browser are available, and all other environment variables remain private. Read more in the [Vite docs](https://vitejs.dev/guide/env-and-mode)*
+
+Also, don't forget to set **Redirect** URI as https://127.0.0.1.
+![redirects](https://i.imgur.com/yKy4Isx.png)
+
+#### Client:
+Let's install & run our client in the browser. Once we run it, it will be served at http://localhost:5173.
 ```
 cd client
 npm install
 npm run dev
 ```
 
-Activate **Embedded SDK** for the client:
-**Uncomment** SDK code in **client/main.js**:
+Now you can see your Phaser game in the browser, and play with it however you like! 
+
+#### Initialize Embedded App SDK
+
+You will see we already have Embedded App SDK installed in **client/package.json**.
+We just need to instantiate **Embedded App SDK** for the client. To do that, you need to **uncomment** SDK code in **client/main.js**:
 ```js
-// Instantiate the SDK
-/* const discordSdk = new DiscordSDK(import.meta.env.VITE_DISCORD_CLIENT_ID);
+const discordSdk = new DiscordSDK(import.meta.env.VITE_DISCORD_CLIENT_ID);
 setupDiscordSdk().then(() => {
   console.log("Discord SDK is ready");
 });
 async function setupDiscordSdk() {
   await discordSdk.ready();
-} */
+} 
 ```
 
-Once you add the SDK to your app, you will **not** be able to view your app inside your web browser. In the next step, we will run your Activity inside of Discord. In the next step, we will go over how to view you app in Discord.
+Once you add the SDK to your app, you will **NOT** be able to view your app inside your web browser. 
 
 ```
 cd client
 npm run dev
 ```
 
-Let's have another terminal tab for network tunnel to run application locally via **cloudflared** or **ngrok**:
+Let's have another terminal tab for network tunnel to run application locally via **cloudflared** or **ngrok**. We will use cloudflared in this example. If you haven't, you can install cloudflared locally or globally(**npm i -g cloudflared**).
 ```
 cloudflared tunnel --url http://localhost:5173
 ```
+![cloudflared](https://i.imgur.com/GzcK5YP.png)
 
-Add the generated public URL to your Discord **Activities -> URL Mappings**.
+Now, let's add the generated public URL to your Discord **Activities -> URL Mappings**.
+![urlmapping](https://i.imgur.com/er8k971.png)
+
+#### Server:
+In order to have OAuth2 working for authorization with Discord, let's install and run our local server.
+```
+cd server
+npm install
+npm run dev
+```
 
 
+#### Activate Developer Mode in Discord
+As the last step, we need to activate Developer Mode inside of the Discord, so we can view the our game in the Activities. Go to, **Discord Settings -> Advanced -> Developer Mode -> On**.
+
+![activatedevelopermode](https://i.imgur.com/VIwEy82.png)
+
+#### Launch your Activity!
 Now, you can run your Phaser app locally by just creating Activity in Discord! You will see the game will pop up there!
+![runactivity](https://i.imgur.com/4PV332W.png)
 
 
 ## Test With Other People
 You need to add your friends on **Developer Portal -> Applications -> Your App -> App Testers -> Invite**. Once they accept invite, they can join to your Activity.
-
+![addtester](https://i.imgur.com/eNPep5N.png)
 
 ## Template Project Structure
 
@@ -77,7 +120,8 @@ We have provided a default project structure to get you started. This is as foll
 - `client` - Contains the game & Discord SDK source code.
 - `client/main.js` - The main entry point for the client. This contains the game & Discord SDK configuration which starts the game.
 - `client/scenes/` - The Phaser Scenes are in this folder.
-- `server/server.js` - Contains Discord SDK OAuth2 connection
+- `client/assets/` - Contains game assets(sprites, sounds, spritesheets, etc).
+- `server/server.js` - Contains Discord SDK for OAuth2 connection
 
 ## Handling Assets
 
@@ -110,7 +154,7 @@ When you issue the `npm run build` command, all static assets are automatically 
 
 ### Vite
 
-If you want to customize your build, such as adding plugin (i.e. for loading CSS or fonts), you can modify the `vite/config.*.mjs` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json`. Please see the [Vite documentation](https://vitejs.dev/) for more information.
+If you want to customize your build, such as adding plugin (i.e. for loading CSS or fonts), you can modify the `client/vite.config.js` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json`. Please see the [Vite documentation](https://vitejs.dev/) for more information.
 
 ## Join the Phaser Community!
 

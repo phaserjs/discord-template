@@ -37,7 +37,8 @@ git clone git@github.com:phaserjs/discord-template.git
 ##### Set OAuth2 Credentials:
 Rename **example.env** to **.env** 
 ```
-cp example.env .env
+mv example.env .env // For Linux/MacOS
+move example.env .env // For Windows
 ```
 
 Replace your environment variables in **.env** from **Discord App -> OAuth2**
@@ -79,7 +80,8 @@ async function setupDiscordSdk() {
 Once you add the SDK to your app, you will **NOT** be able to view your app inside your web browser. 
 
 #### Running the game locally in Discord
-Let's have another terminal tab for network tunnel to run application locally via **cloudflared** or **ngrok**. We will use cloudflared in this example. If you haven't, you can install cloudflared locally or globally(**npm i -g cloudflared**).
+Let's have another terminal tab for network tunnel to run application locally via **cloudflared** or **ngrok**. We will use cloudflared in this example.
+If you haven't, you can install cloudflared locally or globally(**npm i -g cloudflared**).
 ```
 cloudflared tunnel --url http://localhost:5173
 ```

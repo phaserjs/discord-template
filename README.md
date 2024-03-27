@@ -31,8 +31,11 @@ You can get a full overview of the [Discord Embedded App SDK](https://discord.co
 
 ## Creating A Discord App
 
-First you need to create a Discord app via the [Discord Developer Portal](https://discord.com/developers/applications)
-![createdcapp](screenshots/createdcapp.png). This app will house your game and allow you to create activities for your server.
+First you need to create a Discord app via the [Discord Developer Portal](https://discord.com/developers/applications):
+
+![createdcapp](screenshots/createdcapp.png)
+
+This app will house your game and allow you to create activities for your server.
 
 ## Installation
 

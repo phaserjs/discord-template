@@ -18,7 +18,7 @@ export default ({ mode }) => {
           changeOrigin: true,
           secure: false,
           ws: true,
-          rewrite: (path) => path.replace(/^\/.proxy\/api/, ''),
+          rewrite: (path) => path.replace(/^\/\.proxy/, ''),
         },
       },
       hmr: {

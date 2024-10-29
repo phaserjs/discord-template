@@ -14,6 +14,9 @@
     "client-build": "cd \"./client\" && npm run build",
     "tunnel": "cloudflared tunnel --url http://localhost:3001"
   },
+  "dependencies": {
+    "cloudflared": "^0.5.3"
+  },
   "author": "Phaser Studio Inc <support@phaser.io> (https://www.phaser.io)",
   "license": "MIT",
   "licenseUrl": "https://www.opensource.org/licenses/mit-license.php"

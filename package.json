@@ -7,14 +7,13 @@
     "dev": "npm run client-dev & npm run server-dev",
     "client-dev": "cd \"./client\" && npm run dev",
     "server-dev": "cd \"./server\" && npm run dev",
-    "install": "npm run install:all",
-    "install:all": "npm run install-client && npm run install-server",
+    "postinstall": "npm run install-client && npm run install-server",
     "install-client": "cd \"./client\" && npm install",
     "install-server": "cd \"./server\" && npm install",
     "client-build": "cd \"./client\" && npm run build",
     "tunnel": "cloudflared tunnel --url http://localhost:3001"
   },
-  "dependencies": {
+  "devDependencies": {
     "cloudflared": "^0.5.3"
   },
   "author": "Phaser Studio Inc <support@phaser.io> (https://www.phaser.io)",

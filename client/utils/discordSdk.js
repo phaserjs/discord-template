@@ -7,7 +7,7 @@ let discordSdk;
 
 const initiateDiscordSDK = async () => {
   if (isEmbedded) {
-    discordSdk = new DiscordSDK(import.meta.env.VITE_CLIENT_ID);
+    discordSdk = new DiscordSDK(import.meta.env.VITE_DISCORD_CLIENT_ID);
   } else {
     // We're using session storage for user_id, guild_id, and channel_id
     // This way the user/guild/channel will be maintained until the tab is closed, even if you refresh
@@ -20,7 +20,7 @@ const initiateDiscordSDK = async () => {
     const mockChannelId = getOverrideOrRandomSessionValue("channel_id");
 
     discordSdk = new DiscordSDKMock(
-      import.meta.env.VITE_CLIENT_ID,
+      import.meta.env.VITE_DISCORD_CLIENT_ID,
       mockGuildId,
       mockChannelId
     );

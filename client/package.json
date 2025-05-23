@@ -12,6 +12,6 @@
   },
   "dependencies": {
     "@discord/embedded-app-sdk": "^1.0.1",
-    "phaser": "^3.87.0"
+    "phaser": "^3.90.0"
   }
 }
